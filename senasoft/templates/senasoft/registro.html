@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Senasoft - Registro de Competidor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
+        .card { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 6px solid #39A900; }
+        h1 { color: #39A900; margin-top: 0; }
+        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 12px 20px; background-color: #39A900; color: white; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; }
+        button:hover { background-color: #2e8800; }
+        .links { margin-top: 20px; text-align: center; }
+        .links a { color: #00324D; text-decoration: none; margin: 0 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Formulario de Registro - SENASOFT</h1>
+        <form action="{% url 'registro' %}" method="POST">
+            {% csrf_token %}
+
+            <label for="nombre">Nombre completo del competidor:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Jhossep David Arce">
+
+            <label for="centro">Nombre del centro de formación:</label>
+            <input type="text" id="centro" name="centro" required placeholder="Ej: Centro de Diseño Tecnológico Industrial - CDTI">
+
+            <label for="categoria">Categoría de inscripción:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="">-- Selecciona una categoría --</option>
+                <option value="Desarrollo Web">Desarrollo Web</option>
+                <option value="Algoritmia">Algoritmia</option>
+                <option value="Bases de Datos">Bases de Datos</option>
+                <option value="Ciberseguridad">Ciberseguridad</option>
+                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+            </select>
+
+            <button type="submit">Guardar Inscripción</button>
+        </form>
+        <div class="links">
+            <a href="{% url 'bienvenida' %}">← Volver a Bienvenida</a> |
+            <a href="{% url 'competidores' %}">Ver Competidores Inscritos →</a>
+        </div>
+    </div>
+</body>
+</html>

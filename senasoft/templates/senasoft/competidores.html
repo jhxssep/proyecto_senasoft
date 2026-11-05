@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Senasoft - Competidores Inscritos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
+        .card { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 6px solid #39A900; }
+        h1 { color: #39A900; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #00324D; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .links { margin-top: 25px; }
+        .btn { display: inline-block; padding: 10px 16px; margin-right: 10px; background-color: #39A900; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-secondary { background-color: #00324D; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Competidores Inscritos en SENASOFT</h1>
+        {% if competidores %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Competidor</th>
+                        <th>Centro de Formación</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comp in competidores %}
+                    <tr>
+                        <td>{{ comp.id }}</td>
+                        <td>{{ comp.nombre }}</td>
+                        <td>{{ comp.centro }}</td>
+                        <td>{{ comp.categoria }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Aún no hay competidores registrados en la base de datos.</p>
+        {% endif %}
+        <div class="links">
+            <a class="btn" href="{% url 'registro' %}">+ Nuevo Registro</a>
+            <a class="btn btn-secondary" href="{% url 'bienvenida' %}">Inicio / Bienvenida</a>
+        </div>
+    </div>
+</body>
+</html>

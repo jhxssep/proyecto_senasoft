@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Senasoft - Bienvenida</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
+        .card { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 6px solid #39A900; }
+        h1 { color: #39A900; margin-top: 0; }
+        .nav-links { margin-top: 25px; }
+        .btn { display: inline-block; padding: 10px 18px; margin-right: 10px; background-color: #39A900; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-secondary { background-color: #00324D; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>¡Bienvenido a SENASOFT!</h1>
+        <p>Bienvenido al micro-sitio oficial de <strong>SENASOFT</strong> para el registro y visualización de aprendices competidores a nivel nacional.</p>
+        <div class="nav-links">
+            <a class="btn" href="{% url 'registro' %}">Registrar Competidor</a>
+            <a class="btn btn-secondary" href="{% url 'competidores' %}">Ver Competidores Inscritos</a>
+        </div>
+    </div>
+</body>
+</html>
